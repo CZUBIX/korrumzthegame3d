@@ -11,6 +11,8 @@ class Bug(Entity):
         self.texture = load_texture(f"./assets/bugs/bug{self.image_number}.png")
         
         self.position = (x, 2, y)
-        self.scale = (75 / 10, 48 / 10, 75 / 10)
+        scale = [75 / 10, 48 / 10, 48 / 10]
+        random.shuffle(scale)
+        self.scale = tuple(scale)
 
         self.shader = lit_with_shadows_shader

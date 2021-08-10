@@ -1,5 +1,5 @@
 from ursina import *
-import threading, random, json
+import threading, json
 import multiplayer
 from rpc import DiscordRPC
 from objects import PlayerMe, Leaderboard
@@ -91,10 +91,10 @@ def run_game(username):
 
     Sky(texture="assets/korrumz.png")
     Entity(model="plane", color=color.hex("202020"), collider="box", position=(1920 / 2, 0, 1080 / 2), scale=(1920, 0, 1080))
-    Entity(model="cube", collider="box", position=(1920 / 2, 10 / 2, 0), scale=(1920, 10, 0))
-    Entity(model="cube", collider="box", position=(0, 10 / 2, 1080 / 2), scale=(0, 10, 1080))
-    Entity(model="cube", collider="box", position=(1920 / 2, 10 / 2, 1080), scale=(1920, 10, 0))
-    Entity(model="cube", collider="box", position=(1920, 10 / 2, 1080 / 2), scale=(0, 10, 1080))
+    Entity(model="cube", position=(1920 / 2, 10 / 2, 0), scale=(1920, 10, 0))
+    Entity(model="cube", position=(0, 10 / 2, 1080 / 2), scale=(0, 10, 1080))
+    Entity(model="cube", position=(1920 / 2, 10 / 2, 1080), scale=(1920, 10, 0))
+    Entity(model="cube", position=(1920, 10 / 2, 1080 / 2), scale=(0, 10, 1080))
     Audio("assets/music/audio_epyk_muzik.ogg", autoplay=True, loop=True, volume=0.01)
 
     player_me = PlayerMe(username, random.randint(0, 1920), random.randint(0, 1080), random.randint(1, 20))
