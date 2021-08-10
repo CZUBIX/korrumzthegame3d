@@ -1,6 +1,7 @@
 from ursina import *
 import websocket, json
 from objects import Player, Bug
+from sys import exit
 
 ws = websocket.WebSocketApp("wss://ws.korrumzthegame.cf")
 
@@ -71,11 +72,12 @@ def run_multiplayer(player_me, leaderboard, discord_rpc):
         elif msg["event"] == "new gban":
             if data["username"] == player_me.username:
                 ws.close()
+                player_me.running = False
                 discord_rpc.running = False
-                exit(0)
 
         elif msg["event"] == "player disconnected":
             players.remove(p)
+            destroy(p.username_object)
             destroy(p)
 
             discord_rpc.update()

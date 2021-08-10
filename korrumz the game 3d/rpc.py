@@ -4,6 +4,7 @@ import time
 class DiscordRPC:
     def __init__(self, player_me, multiplayer):
         self.app_id = 874435457038053447
+        self.enabled = True
 
         self.player_me = player_me
         self.multiplayer = multiplayer
@@ -14,17 +15,19 @@ class DiscordRPC:
         self.running = True
 
     def update(self):
-        activity = Activity()
-        activity.details = f"{self.player_me.username}, {self.player_me.pull_requests} pull requestów"
-        activity.state = "www.korrumzthegame.cf"
-        activity.assets.large_image = "korrumz"
-        activity.assets.large_text = "korrumz the game 3d"
-        activity.assets.small_image = f"player{self.player_me.image_number}"
-        activity.assets.small_text = self.player_me.username
-        activity.party.size.current_size = len(self.multiplayer.players) + 1
-        activity.party.size.max_size = 100
+        if self.enabled:
+            activity = Activity()
+            activity.details = f"{self.player_me.username}, {self.player_me.pull_requests} pull requestów"
+            activity.state = "www.korrumzthegame.cf"
+            activity.assets.large_image = "korrumz"
+            activity.assets.large_text = "korrumz the game 3d"
+            activity.assets.small_image = f"player{self.player_me.image_number}"
+            activity.assets.small_text = self.player_me.username
+            activity.party.size.current_size = len(self.multiplayer.players) + 1
+            activity.party.size.max_size = 100
+            activity.timestamps.start = time.time()
 
-        self.activity_manager.update_activity(activity, lambda x: x)
+            self.activity_manager.update_activity(activity, lambda x: x)
 
     def run(self):
         while self.running:

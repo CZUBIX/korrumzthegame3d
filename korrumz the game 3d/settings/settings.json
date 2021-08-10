@@ -1,0 +1,9 @@
+{
+    "vsync": true,
+    "sensitivityX": 40,
+    "sensitivityY": 40,
+    "fps_counter": "f5",
+    "exit": "escape",
+    "leaderboard": "tab",
+    "rpc_enabled": true
+}
