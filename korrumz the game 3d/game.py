@@ -46,8 +46,8 @@ def sendloop():
                 "event": "move",
                 "data": {
                     "username": player_me.username,
-                    "x": player_me.position[0],
-                    "y": player_me.position[2]
+                    "x": round(player_me.position[0]),
+                    "y": round(player_me.position[2])
                 }
             }
 
