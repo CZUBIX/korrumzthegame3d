@@ -3,7 +3,7 @@ import websocket, json
 from objects import Player, Bug
 from sys import exit
 
-ws = websocket.WebSocketApp("wss://ws.korrumzthegame.cf")
+ws = websocket.WebSocketApp("wss://ws.korrumzthegame.wtf")
 
 players = []
 bugs = []
